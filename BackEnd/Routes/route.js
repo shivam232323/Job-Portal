@@ -7,15 +7,17 @@ const app = new express();
 
 app.use(express.json());
 
+
+router.post('/landPage',user.userValidate);
+
+
 //admin routes
 router.post('/postJob',admin.addJobs);
-router.post('/adminPage',admin.adminValidate);
 router.get('/getJobs',admin.sendJob);
 
 
 //user routes
 router.post('/userSignUp',user.userSignUp);
-router.post('/userPage',user.userValidate);
 
 
 

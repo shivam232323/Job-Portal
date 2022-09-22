@@ -57,7 +57,7 @@ const sendJob = async(req,res) =>
 
 
 
-const adminValidate = async(req,res) =>
+/*const adminValidate = async(req,res) =>
 {
     const {name,email,password} = req.body;
     if(!(name&&email&&password))
@@ -88,11 +88,10 @@ const adminValidate = async(req,res) =>
         }
         })
     }
-}
+}*/
 
 
 module.exports = {
- adminValidate,
  addJobs,
  sendJob
 };

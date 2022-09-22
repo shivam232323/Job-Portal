@@ -51,66 +51,76 @@ exports.userSignUp = async(req,res) =>
     }
    })
 
-    
- 
-   /* */
-   
    
    
     }
 
+
+
+
     exports.userValidate = async(req,res) =>
     {
-        const {user_name,user_email,user_password} = req.body;
+        const {name,email,password} = req.body;
        
-        const sql  =  `select user_password from user where user_email = "${user_email}" and user_name = "${user_name}"`;
+
+        const sql  =  `select user_password from user where user_email = "${email}" and user_name = "${name}"`;
         
-      const value =   pool.query(sql,(err,result) =>
-        {
-            if(err) throw err;
+          await pool.query(sql,(err,result) =>
+         {
+           
+           if(err) throw err;
+
             else
             {
-            
+               
                 if(!result[0])
                 {
                     res.json("Wrong Credentials")
                 }
-
+             
                 else
                 {
-                    let password1 = result[0].user_password;
-                    bcrypt.compare(user_password,password1,(err,isMatch) =>
-    {
-        if (err) throw err;
-        else
-        {
-        if(isMatch)
-        {
-          const query = `select user_name ,role from user where user_email = "${user_email}" and user_name = "${user_name}"`;
-          pool.query(query,(err,result) =>
-          {
-            if(err) throw err;
-            res.json(result);
-        
-          })
-        }
-        else
-        {
-            res.json("Wrong Password");
-        }
-    }
-      });
                     
+                    let password1 = result[0].user_password;
+                    
+                    bcrypt.compare(password,password1,(err,isMatch) =>
+                    {
+                        
+
+                      if(err) throw err;
+                                
+                                  if(isMatch)
+                                  {
+                                       const query = `select user_name ,role from user where user_email = "${email}" and user_name = "${name}"`;
+                                        pool.query(query,(err,result) =>
+                                     {
+                                   if(err) throw err;
+                                            res.json(result);
+        
+                                     })
+                                      }
+                                         else
+                                        {
+                                             res.json("Wrong Password");
+                                               }
+                                               
+                                               
+
+    
+
+      })
+
+      
                 }
+
+
             }
 
-
-            
-        })
-       
+          
+        })    
+        
 
     }
-   
    
    
 

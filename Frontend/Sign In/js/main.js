@@ -15,11 +15,11 @@ signUp.addEventListener('click',function () {
 signIn.addEventListener('click',function(e)
 { 
     e.preventDefault();
-    console.log(typeof(username));
-    console.log(username);
-    if(username.value.includes('admin'))
+    validate();
+
+
+   /* if(username.value.includes('admin'))
     {
-        adminValidate();
     }
 
     else
@@ -60,14 +60,20 @@ signIn.addEventListener('click',function(e)
 
     }
     
-     
+     */
 });
 
 
-const adminValidate = async() =>
+const validate = async() =>
 {
+    if(!(username&&email&&password))
+    {
+        alert("ALL INPUT REQUIRED");
+    }
+    else
+    {
     
-    fetch("http://localhost:1800/adminPage", {
+    fetch("http://localhost:1800/landPage", {
      
     // Adding method type
     method: "POST",
@@ -89,12 +95,40 @@ const adminValidate = async() =>
 // Displaying results to console
 .then(json => 
     {
+        if(json === 'Wrong Password' || json === 'Wrong Credentials')
+        {
+             window.alert(json);
+        }
+        else
+        {
 
-        if(json.message == 'SUCCESS!')
+            //continue from here
+              
+            const {user_name,role} = json[0];
+
+            if(role === 'admin')
+            {
+                window.open("../Admin/admin.html",'_self');
+            }
+            else
+            {
+              
+                window.open("../User/user.html",'_self');
+
+            }
+
+        }
+
+      
+
+        /*const role = json[1].role;
+        const  Name = json[0].user_name;
+
+       /* if(json.message == '')
         {
             
 
-            const response = json.response[0].admin_name;
+            const response = ;
             if(response.includes('admin'))
             {
                 window.open("../Admin/admin.html",'_self');
@@ -105,10 +139,11 @@ const adminValidate = async() =>
         
             console.log(json);
 
-    }
+    }*/
         
     }).catch(err => console.log(err))
 
+}
 }
 
 
