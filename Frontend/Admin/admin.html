@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonyous"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./admin.css">
+
+</head>
+<body>
+    <nav role="navigation" class="navbar  navbar-dark bg-dark navbar-expand-lg ml-auto">
+        <a class="navbar-brand" href="/">JOB_PORTAL</a>
+    <div class="collapse justify-content-between navbar-collapse d-flex" >
+      <ul class="nav navbar-nav  navbar-right">
+        <li class="nav-item active">
+        <li class="nav-item active">
+          <a class="nav-link" onclick="displayJobs()">Posted Jobs</a>
+        </li>
+        
+      </li>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" >LogOut</a>
+        </div>
+    </li>
+        <li class="nav-item">
+            <div id="box">
+          <a class="nav-link"  id = "post" >Post Job</a>
+  
+          <form action="" id="form">
+            <div class="container py-md-5">
+                <div class="col-lg-7 pl-lg-5 pb-3 py-lg-5">
+                    <h1 class="display-5">Post Job</h1>
+                    <form action="" method="POST" id="registration-form">
+                     
+                    </div>
+                    <div class="form-group" id="companyName">
+                      <label for="companyname" class="text-muted mb-1"
+                        ><small>Company Name</small></label
+                      >
+                      <input
+                        name="companyName"
+                        id="company-name"
+                        class="form-control"
+                        type="text"
+                        placeholder="Enter your Company Name"
+                        autocomplete="off"
+                      />
+                    </div>
+                      <div class="form-group">
+                        <label for="title" class="text-muted mb-1"
+                          ><small>Designation</small></label
+                        >
+                        <input
+                          name="title"
+                          id="designation"
+                          class="form-control"
+                          type="text"
+                          placeholder="Enter Job title"
+                          autocomplete="off"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="description" class="text-muted mb-1"
+                          ><small>Description</small></label
+                        >
+                        <input
+                          name="description"
+                          id="description"
+                          class="form-control"
+                          type="text"
+                          placeholder="Enter Job description"
+                          autocomplete="off"
+                        />
+                       
+                        
+                      </div>
+                      <div class="form-group" id="Job-location">
+                        <label for="job-location" class="text-muted mb-1"
+                          ><small>JOB LOCATION</small></label
+                        >
+                        <input
+                          name="job-location"
+                          id="job-locations"
+                          class="form-control"
+                          type="text"
+                          placeholder="Enter Job Location"
+                          autocomplete="off"
+                        />
+                      </div>
+                      
+                      <div class="form-group" id="hr-email">
+                        <label for="hr-email" class="text-muted mb-1"
+                          ><small>Hr Email</small></label
+                        >
+                        <input
+                          name="hr-email"
+                          id="hr"
+                          class="form-control"
+                          type="email"
+                          placeholder="Enter hr email id"
+                          autocomplete="off"
+                        />
+                      </div>
+                      
+
+                      
+
+                      <button
+                        type="submit"
+                        class="py-3 mt-4 btn btn-lg btn-success btn-block"
+                        id  = "post-job"
+                      >
+                        Post Job
+                      </button>
+                      
+            
+                    </form>
+                </div>
+                </div>
+            </div>
+          </form>
+          
+       
+          </div>
+        </li>
+            
+           
+        
+        </ul>
+    </div>
+    </nav>
+
+   
+    <div id = "main1" >
+  </div>
+    
+
+</body>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="./admin.js"></script>
+</html>
