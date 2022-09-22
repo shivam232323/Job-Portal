@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router(); 
 const pool = require('../database');
 const bcrypt = require('bcryptjs');
+const { json } = require('express');
 const app = new express();
 const saltRounds =  4 ;
 app.use(express.json());
@@ -13,23 +14,46 @@ exports.userSignUp = async(req,res) =>
    
    console.log(user_name,user_email,user_password);
 
-   const password = await bcrypt.hash(user_password,saltRounds,(err,hashedPassword) =>
-    {
-        if(err) throw err;
-         userRegister(hashedPassword);
+   const sql  =  `select user_email  from user where user_email = "${user_email}"`;
 
-    })
+   const value  = await pool.query(sql,(err,result) =>
+   {
+    if(err) throw err;
+
+    else
+    {
+        
+        if(!result[0])
+        {
+            const password =  bcrypt.hash(user_password,saltRounds,(err,hashedPassword) =>
+            {
+                if(err) throw err;
+                 userRegister(hashedPassword);
+        
+            })
+            
+            function userRegister(hashedPassword)
+            {
+            const sql = `insert into user(user_name,user_email,user_password,role) values("${user_name}","${user_email}","${hashedPassword}","user")`
+            pool.query(sql,(error,result) =>
+            {
+                if(error) throw error;
+                res.json("User Registered Successfully");
+            })
+          
+             } 
+
+        }
+        else
+        {
+             res.json("User Already Exists");
+        }
+    }
+   })
+
     
-    function userRegister(hashedPassword)
-    {
-    const sql = `insert into user(user_name,user_email,user_password,role) values("${user_name}","${user_email}","${hashedPassword}","user")`
-    pool.query(sql,(error,result) =>
-    {
-        if(error) throw error;
-        res.json("User Registered Successfully");
-    })
-  
-     }
+ 
+   /* */
    
    
    
@@ -89,35 +113,5 @@ exports.userSignUp = async(req,res) =>
    
    
    
-    /*const password = await bcrypt.hash(user_password,saltRounds,(err,hashedPassword) =>
-    {
-        if(err) throw err;
-         password(hashedPassword);
-
-    }
-    
-    )
-    function password(value)
-    {
-    bcrypt.compare(user_password,value,(err,isMatch) =>
-    {
-        if (err) throw err;
-        console.log("Matched",isMatch);
-    })
-    }*/
-    
-
-
-
-/*const add = (req,res) =>
-{
-    const sql  = `create table user(user_id int primary key auto_increment,user_name varchar(200),user_email varchar(250),user_password varchar(250))`;
-    const insert = pool.query(sql,(err,result) =>
-    {
-        if(err) throw err;
-
-        console.log("Success");
-    })
-}*/
 
 
