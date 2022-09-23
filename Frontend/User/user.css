@@ -1,0 +1,92 @@
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Home {
+  background-color:rgb(125, 125, 178);
+  border: 2px solid yellow;
+  height: fit-content;
+}
+#News {background-color: green;}
+#Contact {background-color: rgb(185, 124, 124);}
+
+
+
+#test
+{
+
+   margin-top: -80px;
+   margin-left: -19px;
+   text-transform: uppercase;
+   order: 1px solid rgb(144, 144, 197);    
+   height: 370px;
+   background-color:rgb(125, 125, 178);
+    padding: 20px;
+  }
+
+#h3
+{
+  color: black;
+  text-align: center;
+}
+
+#Home button
+{
+   position: relative;
+   left: 1350px;
+   bottom: 5px;
+}
+
+#companyname
+{
+  text-align: center;
+  
+}
+
+#posted
+{
+  position: relative;
+  top: 40px;
+}
+
+#hremail
+{
+  position: relative;
+  left: 250px;
+  top: 69px;
+}
+
+
+#title
+{
+  padding: 16px;
+}

@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonyous"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    <link rel="stylesheet" href="user.css">
+
     <title>Document</title>
 </head>
 <body>
-    <h1>user page</h1>
+    <h2 class="tablink" id = "title">Job-Portal</h2>
+    <button class="tablink" onclick="openPage('Home', this, 'rgb(125, 125, 178)')" id="defaultOpen">Jobs</button>
+<button class="tablink" onclick="openPage('News', this, 'green')" >Applied Jobs</button>
+<button class="tablink" id = "About" onclick="openPage('Contact', this, 'rgb(185, 124, 124)')">User Email</button>
+
+<div id="Home" class="tabcontent">
+    
+  </div>
+
+<div id="News" class="tabcontent">
+  <h3>News</h3>
+  <p>Some news this fine day!</p> 
+</div>
+
+<div id="Contact" class="tabcontent">
+  <button type="button" class="btn btn-outline-danger btn-lg" id="logout">Logout</button>
+
+  <h3>Contact</h3>
+  <p>Get in touch, or swing by for a cup of coffee.</p>
+</div>
+
+
+    
+        <script    src="user.js"></script>
 </body>
 </html>

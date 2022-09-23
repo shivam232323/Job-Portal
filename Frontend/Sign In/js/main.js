@@ -16,51 +16,6 @@ signIn.addEventListener('click',function(e)
 { 
     e.preventDefault();
     validate();
-
-
-   /* if(username.value.includes('admin'))
-    {
-    }
-
-    else
-    {
-        //userValidate
-        fetch("http://localhost:1800/userValidate", {
-     
-    // Adding method type
-    method: "POST",
-     
-    // Adding body or contents to send
-    body: JSON.stringify({
-        name: username.value,
-        email : email.value,
-        password : password.value
-    }),
-     
-    // Adding headers to the request
-    headers: {
-        "Content-type": "application/json"
-    }
-})
-.then(response => response.json())
- 
-// Displaying results to console
-.then(json => 
-    {
-     
-        if(json)
-        {
-            window.open("../User/user.html",'_self');
- 
-        }
-        
-    }).catch(err => console.log(err))
-
-
-
-    }
-    
-     */
 });
 
 
@@ -105,7 +60,8 @@ const validate = async() =>
             //continue from here
               
             const {user_name,role} = json[0];
-
+             localStorage.setItem("Name",user_name);
+             localStorage.setItem("Role",role);
             if(role === 'admin')
             {
                 window.open("../Admin/admin.html",'_self');
@@ -119,27 +75,6 @@ const validate = async() =>
 
         }
 
-      
-
-        /*const role = json[1].role;
-        const  Name = json[0].user_name;
-
-       /* if(json.message == '')
-        {
-            
-
-            const response = ;
-            if(response.includes('admin'))
-            {
-                window.open("../Admin/admin.html",'_self');
-     
-            } 
-        }
-        else{
-        
-            console.log(json);
-
-    }*/
         
     }).catch(err => console.log(err))
 

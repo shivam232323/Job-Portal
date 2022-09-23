@@ -57,38 +57,6 @@ const sendJob = async(req,res) =>
 
 
 
-/*const adminValidate = async(req,res) =>
-{
-    const {name,email,password} = req.body;
-    if(!(name&&email&&password))
-    {
-        res.json("ALL INPUT REQUIRED");
-    }
-    else
-    {
-        sql = `Select admin_name from admin where admin_email = "${email}" and admin_password = "${password}"`;
-        const validate = await pool.query(sql,(err,result)=>
-        {
-            if(err) throw err;
-            else
-            {
-            if(result.length)
-            {
-            res.json(
-                {
-                    message:"SUCCESS!",
-                    response:result
-                }
-            );
-            }
-            else
-            {
-               res.json("WRONG CREDENTIALS")
-            }
-        }
-        })
-    }
-}*/
 
 
 module.exports = {
