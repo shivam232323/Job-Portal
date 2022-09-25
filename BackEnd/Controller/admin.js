@@ -12,7 +12,7 @@ app.use(express.json());
 const addJobs = async(req,res)=>
 {
     const{companyName,designation,jobDescription,jobLocation,hrEmail,jobActive,postedBy} = req.body;
-    console.log(companyName,designation,jobDescription,jobLocation,hrEmail,jobActive,postedBy)
+    
     let jobDeatils = `insert into job (company_name,designation
         ,job_description,
         job_location,

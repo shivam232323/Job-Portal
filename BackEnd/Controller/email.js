@@ -3,8 +3,7 @@ const app = express();
 const nodemailer = require('nodemailer')
 app.use(express.json());
 
-function sendEmail(hrEmail,adminEmail,message)
-{
+ exports.email = async(hrEmail,adminEmail,message) =>{
     let transporter = nodemailer.createTransport(
         {
             service: 'gmail',
@@ -20,9 +19,10 @@ function sendEmail(hrEmail,adminEmail,message)
     let deatils = {
        
         from:'shivamsingh4949@gmail.com',
-            to: 'arzan.momin@neebal.com',
-            subject:'Testing nodemailer',
-            text:'Mail receive hua toh reply kar',
+            to: 'shivamsingh4949@gmail.com',
+            cc: adminEmail,
+            subject: 'Mail From Job-Portal',
+            text: message,
        
     }
 
