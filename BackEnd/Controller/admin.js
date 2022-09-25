@@ -11,14 +11,15 @@ app.use(express.json());
 
 const addJobs = async(req,res)=>
 {
-    const{companyName,designation,jobDescription,jobLocation,hrEmail,jobActive} = req.body;
-    console.log(companyName,designation,jobDescription,jobLocation,hrEmail,jobActive)
+    const{companyName,designation,jobDescription,jobLocation,hrEmail,jobActive,postedBy} = req.body;
+    console.log(companyName,designation,jobDescription,jobLocation,hrEmail,jobActive,postedBy)
     let jobDeatils = `insert into job (company_name,designation
         ,job_description,
         job_location,
         hr_email,
         job_active,
-        job_createdAt)
+        job_createdAt,
+        posted_by)
         values(
             '${companyName}',
             '${designation}',
@@ -26,7 +27,8 @@ const addJobs = async(req,res)=>
             '${jobLocation}',
             '${hrEmail}',
             '${jobActive}',
-            now())`;
+            now(),
+            '${postedBy}')`;
 
    const details = await pool.query(jobDeatils,(err,result)=>
     {

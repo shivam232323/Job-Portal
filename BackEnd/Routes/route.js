@@ -18,6 +18,8 @@ router.get('/getJobs',admin.sendJob);
 
 //user routes
 router.post('/userSignUp',user.userSignUp);
+router.post('/sendUserDetails',user.userDetails);
+router.post('/applyJob',user.applyForJob)
 
 
 
